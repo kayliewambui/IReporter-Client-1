@@ -1,0 +1,197 @@
+.interactiveMapSection {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.interactiveMapTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.interactiveMapSubtitle {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mapContainer {
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.map {
+  height: 100%;
+}
+
+.legend {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.legend h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.legendColor {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.blueLegend { background-color: #0000ff; }
+.greenLegend { background-color: #00ff00; }
+.orangeLegend { background-color: #ffa500; }
+.redLegend { background-color: #ff0000; }
+
+.popup {
+  min-width: 200px;
+}
+
+.popup h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.popup p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.reportNowButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.reportNowButton:hover {
+  background-color: #45a049;
+}
+
+.additionalInfo {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.additionalInfo p {
+  margin-bottom: 10px;
+}
+
+/* Custom styles for Leaflet controls */
+:global(.leaflet-control-zoom) {
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+:global(.leaflet-control-zoom-in),
+:global(.leaflet-control-zoom-out) {
+  background-color: white !important;
+  color: #333 !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  font-size: 18px !important;
+}
+
+:global(.leaflet-control-zoom-in:hover),
+:global(.leaflet-control-zoom-out:hover) {
+  background-color: #f0f0f0 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 400px;
+  }
+
+  .legend {
+    position: static;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+
+  .interactiveMapTitle {
+    font-size: 24px;
+  }
+
+  .interactiveMapSubtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactiveMapSection {
+    padding: 10px;
+  }
+
+  .mapContainer {
+    height: 300px;
+  }
+
+  .legend {
+    padding: 10px;
+  }
+
+  .legendItem {
+    font-size: 12px;
+  }
+
+  .reportNowButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .additionalInfo {
+    font-size: 12px;
+  }
+}
