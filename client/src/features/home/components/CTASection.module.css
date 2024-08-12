@@ -1,0 +1,131 @@
+.finalCTASection {
+    background-color: #0046be;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .empowermentMessage {
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ctaButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .primaryCTA,
+  .secondaryCTA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .primaryCTA {
+    background-color: #ff6b00;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .primaryCTA:hover {
+    background-color: #ff8c00;
+  }
+  
+  .secondaryCTA {
+    background-color: transparent;
+    color: #FF6B35;
+    border: 2px solid white;
+    font-size: 18px;
+  }
+  
+  .secondaryCTA:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .ctaSubtext {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .blogSection,
+  .joinMovementSection {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+  }
+  
+  .blogSection h3,
+  .joinMovementSection h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .meaningfulChange {
+    font-style: italic;
+    margin: 15px 0;
+  }
+  
+  /* .readMore {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  } */
+  
+  .readMore:hover {
+    text-decoration: underline;
+  }
+  
+  .trustReinforcement {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .accessibilityNote {
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .gridContainer {
+      grid-template-columns: 1fr;
+    }
+  
+    .primaryCTA,
+    .secondaryCTA {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .empowermentMessage {
+      font-size: 20px;
+    }
+  }
