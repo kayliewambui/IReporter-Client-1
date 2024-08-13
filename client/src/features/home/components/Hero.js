@@ -1,7 +1,7 @@
 // components/Hero.js
 import React from 'react';
 import styles from './Hero.module.css';
-import Navbar from './Navbar';
+import Navbar from '../../common/components/Navbar';
 
 const Hero = () => {
   return (
@@ -26,7 +26,7 @@ const Hero = () => {
         </div>
         <div className={styles.rightColumn}>
           <div className={styles.reportVisualization}>
-            {/* visualization component for later */}
+            {/* visualization component for later to be added */}
           </div>
           <div className={styles.stats}>
             <div className={styles.statCard}>
@@ -49,3 +49,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
