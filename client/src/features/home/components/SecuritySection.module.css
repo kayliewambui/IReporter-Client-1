@@ -1,0 +1,123 @@
+/* SecuritySection.module.css */
+.section {
+    background-color: #4d81eb;
+    color: white;
+    padding: 4rem 1rem;
+  }
+  
+  .container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .featuresGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .feature {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .feature {
+      width: 25%;
+    }
+  }
+  
+  .featureIcon {
+    background-color: #FF6600;
+    border-radius: 9999px;
+    padding: 0.75rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .featureContent {
+    flex-grow: 1;
+  }
+  
+  .featureTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ctaButton {
+    background-color: white;
+    color: #1228F3;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background-color: #e6e6ff;
+  }
+  
+  .trustBadgesContainer {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .trustBadges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .trustBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #1228F3;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 0.875rem;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .trustBadgeImage {
+    margin-bottom: 0.5rem;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .reassurance {
+    text-align: center;
+    font-style: italic;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
