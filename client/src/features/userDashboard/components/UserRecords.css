@@ -1,0 +1,35 @@
+.user-records {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-records h2 {
+    margin-bottom: 20px;
+  }
+  
+  .user-records ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-records ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .user-records ul li .status {
+    font-weight: bold;
+  }
+  
+  .user-records ul li .status.pending {
+    color: orange;
+  }
+  
+  .user-records ul li .status.resolved {
+    color: green;
+  }
+  
