@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { Card, CardContent, Typography, Grid, Dialog, DialogTitle, DialogContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import Header from '../Header/Header'; // Importing the existing Header component
+import AdminHeader from './AdminHeader';
 import './AdminDashboard.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <Header /> {/* Include your existing Header */}
+      <AdminHeader /> {/* Include your existing Header */}
       
       <Grid container spacing={2} style={{ marginTop: '20px' }}>
         <Grid item xs={4}>

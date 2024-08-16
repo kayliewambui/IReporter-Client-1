@@ -1,9 +1,9 @@
 import React from 'react';
 import {  MdLock, MdShield, MdVerifiedUser } from 'react-icons/md';
 import styles from './SecuritySection.module.css';
-import badge1 from '../../../assets/images/badge1.jpg';
-import badge2 from '../../../assets/images/badge2.png';
-import badge3 from '../../../assets/images/badge3.png';
+// import badge1 from '../../../assets/images/badge1.jpg';
+// import badge2 from '../../../assets/images/badge2.png';
+// import badge3 from '../../../assets/images/badge3.png';
 
 const SecuritySection = () => {
   return (
@@ -43,9 +43,9 @@ const SecuritySection = () => {
             Your information is protected by industry-leading security standards and compliance certifications.
           </p>
           <div className={styles.trustBadges}>
-            <TrustBadge image={badge1} label="ISO 27001 Certified" />
-            <TrustBadge image={badge2} label="GDPR Compliant" />
-            <TrustBadge image={badge3} label="Regular Security Audits" />
+            <TrustBadge image='' label="ISO 27001 Certified" />
+            <TrustBadge image='' label="GDPR Compliant" />
+            <TrustBadge image='' label="Regular Security Audits" />
           </div>
         </div>
 

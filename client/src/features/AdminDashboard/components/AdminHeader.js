@@ -4,17 +4,17 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Avatar, IconButton, MenuItem, Select, Typography } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { fetchUser } from '../../actions/userActions';
-import userImage from '../../assets/userImage.png';
+// import { fetchUser } from '../../actions/userActions';
+// import userImage from '../../assets/userImage.png';
 import './AdminHeader.css';
 
-const Header = () => {
+const AdminHeader = () => {
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchUser());
+  // }, [dispatch]);
 
   return (
     <header className="header">
@@ -39,7 +39,7 @@ const Header = () => {
           <NotificationsIcon />
         </IconButton>
         <div className="user-info">
-          <Avatar alt={user.workId} src={userImage} />
+          <Avatar alt={user.workId} src='' />
           <div className="user-details">
             {loading ? (
               <Typography variant="body1" className="user-name">
