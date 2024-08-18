@@ -4,6 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 import { AuthProvider } from './features/contexts/AuthContext';
 import { useAuth } from './features/hooks/useAuth';
+import UserRecords from './features/userDashboard/components/UserRecords';
+import UserNotifications from './features/userDashboard/components/UserNotifications';
 
 // Common components
 import Footer from './features/common/components/Footer';
@@ -54,7 +56,8 @@ function App() {
               <Route path="/report" element={<ReportModalPage />} />
               <Route path="/user" element={<User />} />
               <Route path="/admin" element={<Admin />} />
-              
+              <Route path="/pastrecords" element={<UserRecords />} />
+              <Route path="/notifications" element={<UserNotifications />} />
               {/* Protected routes */}
               {/* <Route
                 path="/user"
