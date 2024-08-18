@@ -47,9 +47,9 @@ const Login = () => {
 
                 
                 if (workerId) {
-                    navigate('/admin-dashboard'); 
+                    navigate('/admindashboard'); 
                 } else {
-                    navigate('/user-dashboard');  
+                    navigate('/userDashboard');  
                 }
             } else {
                 const errorData = await response.json();

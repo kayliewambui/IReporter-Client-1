@@ -34,7 +34,7 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/user-dashboard" replace />;
   }
 
-  if (!user) {
+  if (!user.isAdmin) {
     return <Navigate to="/admin-dashboard" replace />;
   }
   
@@ -84,3 +84,5 @@ function App() {
 }
 
 export default App;
+
+
