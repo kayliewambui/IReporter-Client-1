@@ -1,0 +1,29 @@
+.sidebar {
+    width: 250px;
+    background-color: #6A0DAD;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  .sidebar h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .sidebar .sidebar-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .sidebar .sidebar-link .MuiListItem-root {
+    color: white;
+  }
+  
+  .sidebar .sidebar-link .MuiListItemIcon-root {
+    color: white;
+  }
+  
