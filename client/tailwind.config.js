@@ -10,8 +10,11 @@ module.exports = {
         'vibrant-orange': '#FF6600',
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', '"Fira Sans"', '"Droid Sans"', '"Helvetica Neue"', 'sans-serif'],
-        mono: ['"Source Code Pro"', 'Menlo', 'Monaco', 'Consolas', '"Courier New"', 'monospace'],
+        sans: ['Source Sans Pro', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+        open: ['Open Sans', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },
