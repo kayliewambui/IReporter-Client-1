@@ -13,7 +13,7 @@ const Step = ({ emoji, title, description }) => (
   </div>
 );
 
-const HowItWorksSection = () => {
+const HowItWorks = () => {
   return (
     <section className={styles.howItWorks}>
       <div className={styles.container}>
@@ -21,6 +21,11 @@ const HowItWorksSection = () => {
           Your Step-by-Step Guide to
           <span className={styles.highlight}> Reporting Corruption</span>
         </h2>
+        <p className={styles.intro}>
+          Corruption affects us all, but together, we can make a difference.<br /><br />
+          iReporter empowers you to take a stand for transparency and accountability in just three simple steps.<br /><br />
+          Your voice matters. Join the fight for a fairer society and report corruption today!
+        </p>
         <div className={styles.stepsContainer}>
           <Step 
             emoji="📱"
@@ -43,4 +48,4 @@ const HowItWorksSection = () => {
   );
 };
 
-export default HowItWorksSection;
+export default HowItWorks;

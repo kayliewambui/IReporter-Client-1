@@ -1,131 +1,86 @@
 .container {
-    background-color: #1228F3;
-    color: #ffffff;
-    padding: 4rem 2rem;
-    font-family: Arial, sans-serif;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
+  background-color: #0000ff;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+.mainTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mainSubtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.imageSection, .featureSection {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.imageSection {
+  margin-right: 1rem;
+  background-color: #ffffff;
+}
+
+.appImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.featureSection {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  color: #000000;
+  text-align: left;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.checkmark {
+  color: #FF6600;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.feature h4 {
+  color: #FF6600;
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
   .contentWrapper {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
   }
   
   .imageSection {
-    flex: 1;
-    position: relative;
-    background-color: #0e1f8b;
-    border-radius: 20px;
-    padding: 2rem;
-    margin-right: 2rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
-  
-  .appImage {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .exploreBanner {
-    background-color: rgba(14, 31, 139, 0.8);
-    color: #ffffff;
-    padding: 1rem;
-    position: absolute;
-    bottom: 3rem;
-    left: 1rem;
-    right: 1rem;
-    border-radius: 10px;
-  }
-  
-  .exploreBanner h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .exploreBanner p {
-    font-size: 0.9rem;
-  }
-  
-  .websiteUrl {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .featureSection {
-    flex: 1;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 2rem;
-    color: #2C2C2C;
-  }
-  
-  .feature {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-  }
-  
-  .checkmark {
-    color: #FF6600;
-    font-size: 1.5rem;
-    margin-right: 1rem;
-  }
-  
-  .feature h4 {
-    color: #FF6600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .downloadButton {
-    background-color: #FF6600;
-    color: #ffffff;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: block;
-    width: 100%;
-    margin-top: 2rem;
-  }
-  
-  .downloadButton:hover {
-    background-color: #e55c00;
-    transform: translateY(-2px);
-  }
-  
-  .downloads {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #4a5568;
-  }
-  
-  @media (max-width: 768px) {
-    .contentWrapper {
-      flex-direction: column;
-    }
-    
-    .imageSection {
-      margin-right: 0;
-      margin-bottom: 2rem;
-    }
-  }
+}
