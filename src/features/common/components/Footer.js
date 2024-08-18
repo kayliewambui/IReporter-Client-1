@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faXTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import styles from './Footer.module.css';
+import styles from '../../../styling/commons/Footer.module.css';
 
 function Footer() {
   return (
