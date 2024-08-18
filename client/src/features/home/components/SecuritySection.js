@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { MdPrivacyTip, MdLock, MdShield, MdVerifiedUser, MdCheckCircle } from 'react-icons/md';
-import styles from './SecuritySection.module.css';
+import styles from './SecuritySection.module.css'
 
 import badge1 from '../../../assets/images/kdpa.jpg';
 import badge2 from '../../../assets/images/gdpr.jpg';
 import badge3 from '../../../assets/images/securityaudit.png';
+
 
 const SecuritySection = () => {
   return (
@@ -55,11 +56,13 @@ const SecuritySection = () => {
           <p className={styles.subtitle}>
             Your information is protected by industry-leading security standards and compliance certifications.
           </p>
+
            <div className={styles.trustBadges}>
             <TrustBadge image={badge1} label="ISO 27001 Certified" />
             <TrustBadge image={badge2} label="GDPR Compliant" />
             <TrustBadge image={badge3} label="Regular Security Audits" />
           </div>
+
 
         </div>
 
