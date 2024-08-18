@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../UserDashboard/components/UserRecords.css';
+import '../../userDashboard/components/UserRecords.css';
 
 const UserRecords = () => {
   // Placeholder records

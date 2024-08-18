@@ -15,6 +15,8 @@ import ReportModalPage from './features/pages/components/ReportModalPage';
 import Login from './features/auth/components/Login';
 import Signup from './features/auth/components/Signup';
 import Forgotpassword from './features/auth/components/Forgotpassword';
+import User from './features/pages/components/User';
+import Admin from './features/pages/components/Admin';
 
 // Protected route component
 const ProtectedRoute = ({ children }) => {
@@ -26,6 +28,14 @@ const ProtectedRoute = ({ children }) => {
   
   if (!user) {
     return <Navigate to="/login" replace />;
+  }
+
+  if (!user) {
+    return <Navigate to="/user-dashboard" replace />;
+  }
+
+  if (!user) {
+    return <Navigate to="/admin-dashboard" replace />;
   }
   
   return children;
@@ -45,10 +55,12 @@ function App() {
               <Route path="/report" element={<ReportModalPage />} />
               {/* protected route */}
               <Route 
-                path="/dashboard" 
+                path="/user-dashboard" 
                 element={
                   <ProtectedRoute>
                     {/* <Dashboard /> */}
+                    <User />
+                    <Admin />
                   </ProtectedRoute>
                 } 
               />
