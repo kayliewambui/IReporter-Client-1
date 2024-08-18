@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserNotifications.css';
+import '../../UserDashboard/components/UserNotifications.css';
 
 const UserNotifications = () => {
   const notifications = [
