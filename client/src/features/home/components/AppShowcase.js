@@ -1,23 +1,17 @@
 import React from 'react';
 import styles from './AppShowcase.module.css';
-// import iReporterImage from '../assets/images/ireporter.png'; // 
+import iReporterImage from '../../../assets/images/IreporterMockup.png';
 
-const  AppShowcase = () => {
+const AppShowcase = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Report Anytime, Anywhere!</h2>
-      <p className={styles.subtitle}>Your powerful tool for change, right in your pocket.</p>
-      
+      <h2 className={styles.mainTitle}>Report Anytime, Anywhere!</h2>
+      <p className={styles.mainSubtitle}>Your powerful tool for change, right in your pocket.</p>
       <div className={styles.contentWrapper}>
         <div className={styles.imageSection}>
-          {/* <img src={iReporterImage} alt="iReporter App" className={styles.appImage} /> */}
-          <div className={styles.exploreBanner}>
-            <h3>EXPLORE IREPORTER NOW</h3>
-            <p>Your powerful tool for change, right in your pocket</p>
-          </div>
-          <p className={styles.websiteUrl}>iReporter.com</p>
+          <img src={iReporterImage} alt="iReporter App" className={styles.appImage} />
         </div>
-        
+
         <div className={styles.featureSection}>
           <div className={styles.feature}>
             <span className={styles.checkmark}>✓</span>
@@ -40,10 +34,6 @@ const  AppShowcase = () => {
               <p>Stay informed with live updates on your report's progress.</p>
             </div>
           </div>
-          <button className={styles.downloadButton}>
-            Download iReporter Now
-          </button>
-          <p className={styles.downloads}>Over 100,000+ downloads and counting</p>
         </div>
       </div>
     </div>

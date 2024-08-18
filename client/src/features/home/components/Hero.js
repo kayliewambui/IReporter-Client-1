@@ -32,6 +32,13 @@ const Hero = () => {
             <div className={styles.statCard}>
               <span>100%</span>
               <span>Anonymous</span>
+              
+            </div>
+
+            <div className={styles.statCard}>
+              <span>100%</span>
+              <span>Anonymous</span>
+              
             </div>
             <div className={styles.statCard}>
               <span>10,000+</span>

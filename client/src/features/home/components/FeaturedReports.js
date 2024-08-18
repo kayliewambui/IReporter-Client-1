@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGraduationCap, FaWater, FaRoad } from 'react-icons/fa';
-import styles from './FeaturedReports.module.css';
+import styles from './FeaturedReports.module.css'; 
+import schoolImage from '../../../assets/images/school.png';
+import roadImage from '../../../assets/images/road.jpg';
+import waterImage from '../../../assets/images/water.jpg';
 
 const FeaturedReports = () => {
   const reports = [
     {
       title: 'Education Funds Recovered',
       icon: <FaGraduationCap />,
-      image: '/path/to/education-image.png',
+      image: schoolImage,
       description: '10 million recovered and redirected. School renovation completed in 3 months',
       link: '/impact/education'
     },
     {
       title: 'Clean Water Access Restored',
       icon: <FaWater />,
-      image: '/path/to/water-image.png',
+      image: waterImage,
       description: 'Project revived. Clean water now reaches 5,000 residents.',
       link: '/impact/water'
     },
     {
       title: 'Road Safety Improved',
       icon: <FaRoad />,
-      image: '/path/to/road-image.png',
+      image: roadImage,
       description: 'Roads rebuilt to proper standards. Traffic accidents decreased by 60%.',
       link: '/impact/roads'
     }
@@ -32,7 +35,8 @@ const FeaturedReports = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>Amplifying Voices, Driving Change</h2>
       <p className={styles.subtitle}>
-        Corruption undermines trust, erodes economic progress, and hinders social development. See how your reports are transforming communities.
+        Corruption undermines trust, erodes economic progress, and hinders social development. 
+        See how your reports are transforming communities.
       </p>
       
       <div className={styles.grid}>

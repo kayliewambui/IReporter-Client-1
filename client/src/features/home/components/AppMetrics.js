@@ -1,25 +1,60 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import CountUp from 'react-countup';
 import styles from './AppMetrics.module.css';
 
-const StatisticItem = ({ end, suffix, description }) => (
+const StatisticItem = React.forwardRef(({ end, suffix, description }, ref) => (
   <div className={styles.statisticItem}>
-    <CountUp end={end} suffix={suffix} duration={2.5} className={styles.counter} />
+    <CountUp end={end} suffix={suffix} duration={2.5} className={styles.counter} ref={ref} />
     <p className={styles.description}>{description}</p>
   </div>
-);
+));
 
 const AppMetrics = () => {
+  const counterElements = useRef([]);
+
+  useLayoutEffect(() => {
+    // Start the counter animations
+    counterElements.current.forEach((counterElement) => {
+      const countUpInstance = CountUp.factory(counterElement);
+      countUpInstance.start();
+    });
+  });
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Together, We're Making a Difference</h2>
       
       <div className={styles.statisticsGrid}>
-        <StatisticItem end={1000} suffix="+" description="Voices raised against corruption" />
-        <StatisticItem end={10000} suffix="+" description="Citizens committed to change" />
-        <StatisticItem end={500} suffix="+" description="Real-world impacts achieved" />
-        <StatisticItem end={1000} suffix="+" description="Spreading accountability nationwide" />
-        <StatisticItem end={100} suffix="+" description="Partnering for action" />
+        <StatisticItem
+          end={1000}
+          suffix="+"
+          description="Voices raised against corruption"
+          ref={(el) => (counterElements.current[0] = el)}
+        />
+        <StatisticItem
+          end={10000}
+          suffix="+"
+          description="Citizens committed to change"
+          ref={(el) => (counterElements.current[1] = el)}
+        />
+        <StatisticItem
+          end={500}
+          suffix="+"
+          description="Real-world impacts achieved"
+          ref={(el) => (counterElements.current[2] = el)}
+        />
+        <StatisticItem
+          end={1000}
+          suffix="+"
+          description="Spreading accountability nationwide"
+          ref={(el) => (counterElements.current[3] = el)}
+        />
+        <StatisticItem
+          end={100}
+          suffix="+"
+          description="Partnering for action"
+          ref={(el) => (counterElements.current[4] = el)}
+        />
       </div>
 
       <div className={styles.additionalMetrics}>

@@ -117,7 +117,7 @@ const ReportsMapSection = () => {
 
       <div className={styles.additionalInfo}>
         <p>This map represents aggregated data from user reports. Individual report locations are approximated to protect user privacy.</p>
-        <p>Can't find your area? Zoom out or use the search function to explore different regions.</p>
+        <p>Can't find your area? Zoom out to explore different regions.</p>
       </div>
     </section>
   );
