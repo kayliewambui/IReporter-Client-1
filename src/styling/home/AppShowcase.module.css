@@ -1,0 +1,86 @@
+.container {
+    background-color: #0000ff;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .mainTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mainSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .imageSection, .featureSection {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .imageSection {
+    margin-right: 1rem;
+    background-color: #ffffff;
+  }
+  
+  .appImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .featureSection {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    color: #000000;
+    text-align: left;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .checkmark {
+    color: #FF6600;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .feature h4 {
+    color: #FF6600;
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+  }
+  
+  .feature p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contentWrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .imageSection {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
