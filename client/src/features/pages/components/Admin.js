@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
-import Sidebar from './Components/Sidebar/Sidebar';
-import Dashboard from './Components/Dashboard/Dashboard';
-import Redflags from './Components/Redflags/Redflags';
-import Interventions from './Components/Interventions/Interventions';
-import GeoLocation from './Components/GeoLocation/GeoLocation';
+import store from '../../AdminDashboard/store';
+import Sidebar from '../../AdminDashboard/components/AdminSidebar';
+import Dashboard from '../../AdminDashboard/components/AdminDashboard';
+import Redflags from '../../AdminDashboard/components/Redflags';
+import Interventions from '../../AdminDashboard/components/Interventions';
+import GeoLocation from '../../AdminDashboard/components/GeoLocation';
 
 
 function App() {
