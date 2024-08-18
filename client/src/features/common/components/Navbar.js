@@ -17,9 +17,12 @@ const Navbar = () => {
         <li><a href="#about">ABOUT</a></li>
       </ul>
       <div className={styles.userActions}>
-        <Link to={`/login`}>      
-      <button className={styles.loginButton}>LOG IN</button></Link>
+      <Link to={`/login`}>         
+        <button className={styles.loginButton}>LOG IN</button>
+      </Link>
+      <Link to={`/signup`}> 
         <button className={styles.signupButton}>SIGN UP</button>
+      </Link>
         <button className={styles.reportNowButton}>REPORT NOW</button>
       </div>
     </nav>

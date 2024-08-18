@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'; 
 import './Login.css'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -42,7 +43,12 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <button onClick={handleLogin}>Login</button>
-                        <a href="#" onClick={handleForgotPassword} className="forgot-password">Forgot Password?</a>
+                        <br />
+                        <br />
+                        <Link to={`/forgotpassword`} onClick={handleForgotPassword} className="forgot-password">         
+                          Forgot Password?
+                        </Link>
+                       
                         {message && <p className="message">{message}</p>}
                     </div> 
                 </div>
