@@ -6,7 +6,7 @@ import { Avatar, IconButton, MenuItem, Select, Typography } from '@mui/material'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { fetchUser } from '../../AdminDashboard/actions/userActions';
 import userImage from '../../AdminDashboard/assets/userImage.png';
-import './AdminHeader.css';
+import '../../../styling/admincss/Header.css';
 
 const AdminHeader = () => {
   const dispatch = useDispatch();

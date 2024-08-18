@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import axios from 'axios';
+import '../../../styling/admincss/Redflags.css';
 
 const Redflags = () => {
   const [redflags, setRedflags] = useState([]);
