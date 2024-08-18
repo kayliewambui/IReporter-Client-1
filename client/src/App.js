@@ -5,6 +5,7 @@ import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 import { AuthProvider } from './features/contexts/AuthContext';
 import { useAuth } from './features/hooks/useAuth';
 
+
 // Common components
 import Footer from './features/common/components/Footer';
 
@@ -13,6 +14,7 @@ import Home from './features/pages/components/Home';
 import ReportModalPage from './features/pages/components/ReportModalPage';
 import Login from './features/auth/components/Login';
 import Signup from './features/auth/components/Signup';
+import Forgotpassword from './features/auth/components/Forgotpassword';
 
 // Protected route component
 const ProtectedRoute = ({ children }) => {
@@ -39,6 +41,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/forgotpassword" element={<Forgotpassword />} />
               <Route path="/report" element={<ReportModalPage />} />
               {/* protected route */}
               <Route 
