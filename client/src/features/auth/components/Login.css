@@ -1,10 +1,11 @@
 /* Styles for the auth container */
+
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #2655f0;
 }
 
 .auth-form {
