@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AppShowcase.module.css';
+import styles from '../../../styling/home/AppShowcase.module.css';
 import iReporterImage from '../../../assets/images/IreporterMockup.png';
 
 const AppShowcase = () => {

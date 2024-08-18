@@ -14,31 +14,31 @@ import ReportModalPage from './features/pages/components/ReportModalPage';
 import Login from './features/auth/components/Login';
 import Signup from './features/auth/components/Signup';
 import Forgotpassword from './features/auth/components/Forgotpassword';
-import UserDashboard from './features/userDashboard/components/UserDashboard'; // Updated route for user dashboard
-import AdminDashboard from './features/AdminDashboard/components/AdminDashboard'; // Updated route for admin dashboard
+import User from './features/pages/components/User'; 
+import Admin from './features/pages/components/Admin';
 
 // Protected route component
-const ProtectedRoute = ({ children, role }) => {
-  const { user, loading } = useAuth();
+// const ProtectedRoute = ({ children, role }) => {
+//   const { user, loading } = useAuth();
 
-  if (loading) {
-    return <div>Loading...</div>; // Or a loading spinner
-  }
+//   if (loading) {
+//     return <div>Loading...</div>; // Or a loading spinner
+//   }
 
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
+//   if (!user) {
+//     return <Navigate to="/login" replace />;
+//   }
 
-  if (role === 'admin' && user.role !== 'admin') {
-    return <Navigate to="/user-dashboard" replace />;
-  }
+//   if (role === 'admin' && user.role !== 'admin') {
+//     return <Navigate to="/admin-dashboard" replace />;
+//   }
 
-  if (role === 'user' && user.role !== 'user') {
-    return <Navigate to="/admin-dashboard" replace />;
-  }
+//   if (role === 'user' && user.role !== 'user') {
+//     return <Navigate to="/userdashboard" replace />;
+//   }
 
-  return children;
-}
+//   return children;
+// }
 
 function App() {
   return (
@@ -52,23 +52,26 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgotpassword" element={<Forgotpassword />} />
               <Route path="/report" element={<ReportModalPage />} />
+              <Route path="/user" element={<User />} />
+              <Route path="/admin" element={<Admin />} />
+              
               {/* Protected routes */}
-              <Route
-                path="/user-dashboard"
+              {/* <Route
+                path="/user"
                 element={
                   <ProtectedRoute role="user">
-                    <UserDashboard />
+                    <User />
                   </ProtectedRoute>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/admin-dashboard"
                 element={
                   <ProtectedRoute role="admin">
                     <AdminDashboard />
                   </ProtectedRoute>
                 }
-              />
+              /> */}
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './HowItWorksSection.module.css';
+import styles from '../../../styling/home/HowItWorksSection.module.css';
 
 const Step = ({ emoji, title, description }) => (
   <div className={styles.step}>

@@ -1,6 +1,6 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import CountUp from 'react-countup';
-import styles from './AppMetrics.module.css';
+import styles from '../../../styling/home/AppMetrics.module.css';
 
 const StatisticItem = React.forwardRef(({ end, suffix, description }, ref) => (
   <div className={styles.statisticItem}>

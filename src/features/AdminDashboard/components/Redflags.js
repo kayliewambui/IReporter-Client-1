@@ -10,7 +10,7 @@ const Redflags = () => {
   useEffect(() => {
     const fetchRedflags = async () => {
       try {
-        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records?type=redflag');
+        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/red-flags');
         setRedflags(response.data);
       } catch (error) {
         console.error('Error fetching redflags:', error);

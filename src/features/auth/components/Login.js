@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../styling/loggins/Login.css';
-import BASE_URL from '../../../config/config';
+// import { useAuth } from '../../hooks/useAuth';
+// import BASE_URL from '../../../config/config';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch(`${BASE_URL}/api/auth/login`, {
+      const response = await fetch('https://ireporter-server-hb42.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,9 +49,9 @@ const Login = () => {
 
         // Redirect based on user role
         if (workerId) {
-          navigate('/admin-dashboard');
+          navigate('/admin');
         } else {
-          navigate('/user-dashboard');
+          navigate('/user');
         }
       } else {
         const errorData = await response.json();
