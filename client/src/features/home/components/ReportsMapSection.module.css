@@ -8,18 +8,20 @@
 }
 
 .interactiveMapTitle {
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: #111111;
   text-align: center;
   margin-bottom: 10px;
+  font-family: 'Merriweather', serif;
 }
 
 .interactiveMapSubtitle {
-  font-size: 18px;
-  color: #666;
+  font-size: 1.25rem;
+  color: #111111;
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .mapContainer {
@@ -50,7 +52,7 @@
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  font-family: 'Merriweather', serif;
 }
 
 .legendItem {
@@ -58,7 +60,8 @@
   align-items: center;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #555;
+  color: #002366;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .legendColor {
@@ -80,7 +83,8 @@
 .popup h3 {
   margin-top: 0;
   font-size: 18px;
-  color: #333;
+  color: #000000;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .popup p {
@@ -96,22 +100,24 @@
 }
 
 .reportNowButton {
-  background-color: #4CAF50;
+  background-color: #FF6600;
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .reportNowButton:hover {
-  background-color: #45a049;
+  background-color: #e55c00;
 }
 
 .additionalInfo {
@@ -119,8 +125,9 @@
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 8px;
-  font-size: 14px;
-  color: #666;
+  font-size: 15px;
+  color: #002366;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .additionalInfo p {
@@ -136,7 +143,7 @@
 :global(.leaflet-control-zoom-in),
 :global(.leaflet-control-zoom-out) {
   background-color: white !important;
-  color: #333 !important;
+  color: #000000 !important;
   width: 30px !important;
   height: 30px !important;
   line-height: 30px !important;

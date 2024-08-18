@@ -33,7 +33,7 @@ const CTASection = () => {
             </p>
             <button className={styles.secondaryCTA}>
               Learn More
-              <span className={styles.ctaSubtext}>Discover how iReporter works</span>
+              <span className={styles.ctaSubtext}>Discover how IReporter works</span>
             </button>
           </div>
         </div>
