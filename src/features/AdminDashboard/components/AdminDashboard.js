@@ -8,7 +8,7 @@ import './AdminDashboard.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
