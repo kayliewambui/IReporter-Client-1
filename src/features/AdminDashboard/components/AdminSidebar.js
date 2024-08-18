@@ -9,7 +9,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { Link } from 'react-router-dom';
 import '../../../styling/admincss/AdminSidebar.css';
 
-const Sidebar = () => {
+const AdminSidebar = () => {
   return (
     <div className="sidebar">
       <h2>IReporter</h2>

@@ -2,12 +2,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../UserDashboard/store/store';
-import UserDashboard from '../../UserDashboard/components/UserDashboard';
-import UserRecords from '../../UserDashboard/components/UserRecords';
-import UserNotifications from '../../UserDashboard/components/UserNotifications';
+import store from '../../userDashboard/store/store';
+import UserDashboard from '../../userDashboard/components/UserDashboard';
+import UserRecords from '../../userDashboard/components/UserRecords';
+import UserNotifications from '../../userDashboard/components/UserNotifications';
 
-function App() {
+function User() {
   return (
     <Provider store={store}>
       <Router>

@@ -8,7 +8,7 @@ import { fetchUser } from '../../AdminDashboard/actions/userActions';
 import userImage from '../../AdminDashboard/assets/userImage.png';
 import '../../../styling/admincss/Header.css';
 
-const Header = () => {
+const AdminHeader = () => {
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.user);
 

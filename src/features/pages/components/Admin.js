@@ -9,7 +9,7 @@ import Interventions from '../../AdminDashboard/components/Interventions';
 import GeoLocation from '../../AdminDashboard/components/GeoLocation';
 
 
-function App() {
+function Admin() {
   return (
     <Provider store={store}>
       <Router>
