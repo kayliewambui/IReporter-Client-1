@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ReportFormLocationInput from './ReportFormLocationInput';
-import styles from './MultiStepForm.module.css';
+import styles from '../../../styling/reports/MultiStepForm.module.css';
 
 const MultiStepForm = ({ existingReport = null }) => {
   const [step, setStep] = useState(1);

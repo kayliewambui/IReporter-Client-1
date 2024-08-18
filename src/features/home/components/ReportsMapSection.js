@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, ZoomControl, CircleMarker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
-import styles from './ReportsMapSection.module.css';
+import styles from '../../../styling/home/ReportsMapSection.module.css';
 
 // Coordinates for Kenyan towns 
 const heatmapData = [

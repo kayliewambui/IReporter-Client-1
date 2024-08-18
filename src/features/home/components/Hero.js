@@ -1,6 +1,6 @@
 // components/Hero.js
 import React from 'react';
-import styles from './Hero.module.css';
+import styles from '../../../styling/home/Hero.module.css';
 import Navbar from '../../common/components/Navbar';
 
 const Hero = () => {
