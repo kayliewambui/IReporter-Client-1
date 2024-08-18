@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../styling/usercss/UserNotifications.css';
 
+
 const UserNotifications = () => {
   const notifications = [
     'Your report has been reviewed.',
