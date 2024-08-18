@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.33b496fb.css",
+    "main.js": "/react-gh-pages/static/js/main.906976a8.js",
+    "static/js/453.258b012d.chunk.js": "/react-gh-pages/static/js/453.258b012d.chunk.js",
+    "static/media/school.png": "/react-gh-pages/static/media/school.113ee43078b96d8c3b44.png",
+    "static/media/water.jpg": "/react-gh-pages/static/media/water.7bbbaf375f431f6582ed.jpg",
+    "static/media/IreporterMockup.png": "/react-gh-pages/static/media/IreporterMockup.a2c40be2dff2a2f317d3.png",
+    "static/media/road.jpg": "/react-gh-pages/static/media/road.6bd4d117af8d766397e3.jpg",
+    "static/media/kdpa.jpg": "/react-gh-pages/static/media/kdpa.5ed1af194e15d8891669.jpg",
+    "static/media/gdpr.jpg": "/react-gh-pages/static/media/gdpr.f4cf0dda829d50d58193.jpg",
+    "static/media/securityaudit.png": "/react-gh-pages/static/media/securityaudit.dbaf33591bd1d8e1604d.png",
+    "index.html": "/react-gh-pages/index.html",
+    "main.33b496fb.css.map": "/react-gh-pages/static/css/main.33b496fb.css.map",
+    "main.906976a8.js.map": "/react-gh-pages/static/js/main.906976a8.js.map",
+    "453.258b012d.chunk.js.map": "/react-gh-pages/static/js/453.258b012d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33b496fb.css",
+    "static/js/main.906976a8.js"
+  ]
+}
