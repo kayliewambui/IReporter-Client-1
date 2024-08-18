@@ -4,7 +4,7 @@ import { Card, CardContent, Typography, Grid, Dialog, DialogTitle, DialogContent
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import Header from '../../AdminDashboard/components/AdminHeader';
-import './AdminDashboard.css';
+import '../../../stylinng/admincss/AdminDashboard.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 

@@ -7,7 +7,7 @@ import MapIcon from '@mui/icons-material/Map';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { Link } from 'react-router-dom';
-import './AdminSidebar.css';
+import '../../../styling/admincss/AdminSidebar.css';
 
 const Sidebar = () => {
   return (
