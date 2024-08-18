@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MdPrivacyTip, MdLock, MdShield, MdVerifiedUser, MdCheckCircle } from 'react-icons/md';
-import styles from './SecuritySection.module.css'
+import styles from '../../../styling/home/SecuritySection.module.css'
 
 import badge1 from '../../../assets/images/kdpa.jpg';
 import badge2 from '../../../assets/images/gdpr.jpg';

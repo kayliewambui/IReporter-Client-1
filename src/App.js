@@ -4,7 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 import { AuthProvider } from './features/contexts/AuthContext';
 import { useAuth } from './features/hooks/useAuth';
-
+import UserRecords from './features/userDashboard/components/UserRecords';
+import UserNotifications from './features/userDashboard/components/UserNotifications';
 
 // Common components
 import Footer from './features/common/components/Footer';
@@ -15,31 +16,31 @@ import ReportModalPage from './features/pages/components/ReportModalPage';
 import Login from './features/auth/components/Login';
 import Signup from './features/auth/components/Signup';
 import Forgotpassword from './features/auth/components/Forgotpassword';
-import User from './features/pages/components/User';
+import User from './features/pages/components/User'; 
 import Admin from './features/pages/components/Admin';
 
 // Protected route component
-const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
-  
-  if (loading) {
-    return <div>Loading...</div>; // Or loading spinner
-  }
-  
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
+// const ProtectedRoute = ({ children, role }) => {
+//   const { user, loading } = useAuth();
 
-  if (!user) {
-    return <Navigate to="/user-dashboard" replace />;
-  }
+//   if (loading) {
+//     return <div>Loading...</div>; // Or a loading spinner
+//   }
 
-  if (!user) {
-    return <Navigate to="/admin-dashboard" replace />;
-  }
-  
-  return children;
-}
+//   if (!user) {
+//     return <Navigate to="/login" replace />;
+//   }
+
+//   if (role === 'admin' && user.role !== 'admin') {
+//     return <Navigate to="/admin-dashboard" replace />;
+//   }
+
+//   if (role === 'user' && user.role !== 'user') {
+//     return <Navigate to="/userdashboard" replace />;
+//   }
+
+//   return children;
+// }
 
 function App() {
   return (
@@ -53,25 +54,27 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgotpassword" element={<Forgotpassword />} />
               <Route path="/report" element={<ReportModalPage />} />
-              {/* protected route */}
-              <Route 
-                path="/user-dashboard" 
+              <Route path="/user" element={<User />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/pastrecords" element={<UserRecords />} />
+              <Route path="/notifications" element={<UserNotifications />} />
+              {/* Protected routes */}
+              {/* <Route
+                path="/user"
                 element={
-                  <ProtectedRoute>
-                    {/* <Dashboard /> */}
+                  <ProtectedRoute role="user">
                     <User />
-                    <Admin />
                   </ProtectedRoute>
-                } 
-              />
-              {/* Add other routes here */}
-              {/* <Route path="/how-it-works" element={<HowItWorksPage />} /> */}
-              {/* <Route path="/impact" element={<Impact />} /> */}
-              {/* <Route path="/data-security" element={<DataSecurity />} /> */}
-              {/* <Route path="/about" element={<About />} /> */}
-              {/* <Route path="/contact" element={<Contact />} /> */}
-              {/* <Route path="/faq" element={<FAQPage />} /> */}
-              {/* <Route path="/privacy-policy" element={<PrivacyPolicyPage />} /> */}
+                }
+              /> */}
+              {/* <Route
+                path="/admin-dashboard"
+                element={
+                  <ProtectedRoute role="admin">
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              /> */}
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

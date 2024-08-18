@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGraduationCap, FaWater, FaRoad } from 'react-icons/fa';
-import styles from './FeaturedReports.module.css'; 
+import styles from '../../../styling/home/FeaturedReports.module.css'; 
 import schoolImage from '../../../assets/images/school.png';
 import roadImage from '../../../assets/images/road.jpg';
 import waterImage from '../../../assets/images/water.jpg';

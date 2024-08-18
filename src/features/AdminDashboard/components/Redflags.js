@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import axios from 'axios';
+import '../../../styling/admincss/Redflags.css';
 
 const Redflags = () => {
   const [redflags, setRedflags] = useState([]);
@@ -9,7 +10,7 @@ const Redflags = () => {
   useEffect(() => {
     const fetchRedflags = async () => {
       try {
-        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records?type=redflag');
+        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/red-flags');
         setRedflags(response.data);
       } catch (error) {
         console.error('Error fetching redflags:', error);

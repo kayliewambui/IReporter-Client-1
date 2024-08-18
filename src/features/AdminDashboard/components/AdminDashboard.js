@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Card, CardContent, Typography, Grid, Dialog, DialogTitle, DialogContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import Header from '../../AdminDashboard/components/AdminHeader';
-import './AdminDashboard.css';
+import '../../../styling/admincss/AdminDashboard.css';
+
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="dashboard">
-      <Header /> {/* Include your existing Header */}
+      {/* <Header /> Include your existing Header */}
       
       <Grid container spacing={2} style={{ marginTop: '20px' }}>
         <Grid item xs={4}>

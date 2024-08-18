@@ -174,7 +174,7 @@ import { MapPin } from 'lucide-react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import debounce from 'lodash/debounce';
-import styles from './ReportFormLocationInput.module.css';
+import styles from '../../../styling/reports/ReportFormLocationInput.module.css';
 
 // Import marker icons
 import icon from 'leaflet/dist/images/marker-icon.png';

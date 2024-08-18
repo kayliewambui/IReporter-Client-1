@@ -1,6 +1,6 @@
 // src/components/UserDashboard/UserSidebar.js
 import React from 'react';
-import './UserSidebar.css';
+import '../../../styling/usercss/UserSidebar.css';
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -8,6 +8,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
+
 
 const UserSidebar = () => {
   return (
@@ -24,7 +25,7 @@ const UserSidebar = () => {
             <ListItemText primary="Dashboard" />
           </ListItem>
         </Link>
-        <Link to="/records" className="link">
+        <Link to="/pastrecords" className="link">
           <ListItem button>
             <ListItemIcon className="icon">
               <DescriptionIcon />
