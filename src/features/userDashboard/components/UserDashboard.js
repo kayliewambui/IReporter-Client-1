@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserDashboard.css';
+import '../../../styling/usercss/UserDashboard.css';
 import UserSidebar from '../../UserDashboard/components/UserSidebar';
 import UserHeader from '../../UserDashboard/components/UserHeader';
 

@@ -2,6 +2,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Avatar, Box, IconButton } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import '../../../styling/usercss/UserHeader.css';
 
 const UserHeader = () => {
   return (
