@@ -1,6 +1,6 @@
 // src/components/UserDashboard/UserSidebar.js
 import React from 'react';
-import './UserSidebar.css';
+import '../../../styling/usercss/UserSidebar.css';
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import DescriptionIcon from '@mui/icons-material/Description';
