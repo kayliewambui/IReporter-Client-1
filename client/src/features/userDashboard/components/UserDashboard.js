@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserDashboard.css';
-import UserSidebar from './UserSidebar';
-import UserHeader from './UserHeader';
+import UserSidebar from '../../UserDashboard/components/UserSidebar';
+import UserHeader from '../../UserDashboard/components/UserHeader';
 
 const UserDashboard = () => {
   return (

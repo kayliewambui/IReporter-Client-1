@@ -4,8 +4,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Avatar, IconButton, MenuItem, Select, Typography } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { fetchUser } from '../../actions/userActions';
-import userImage from '../../assets/userImage.png';
+import { fetchUser } from '../../AdminDashboard/actions/userActions';
+import userImage from '../../AdminDashboard/assets/userImage.png';
 import './AdminHeader.css';
 
 const Header = () => {
