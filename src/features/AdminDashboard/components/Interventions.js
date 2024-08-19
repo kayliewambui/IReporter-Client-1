@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
 import '../../../styling/admincss/Interventions.css';
 
@@ -31,6 +31,30 @@ const Interventions = () => {
 
     fetchInterventions();
   }, []);
+
+  const handleStatusChange = async (public_id, newStatus) => {
+    try {
+      const token = sessionStorage.getItem('access_token');
+      const response = await axios.patch(
+        `https://ireporter-server-hb42.onrender.com/api/records/${public_id}`,
+        { status: newStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Update the local state to reflect the status change
+      setInterventions((prevInterventions) =>
+        prevInterventions.map((intervention) =>
+          intervention.public_id === public_id ? { ...intervention, status: newStatus } : intervention
+        )
+      );
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
 
   return (
     <div>
@@ -65,7 +89,16 @@ const Interventions = () => {
                     ))}
                   </TableCell>
                   <TableCell>{intervention.location}</TableCell>
-                  <TableCell>{intervention.status}</TableCell>
+                  <TableCell>
+                    <Select
+                      value={intervention.status}
+                      onChange={(e) => handleStatusChange(intervention.public_id, e.target.value)}
+                    >
+                      <MenuItem value="Under Investigation">Under Investigation</MenuItem>
+                      <MenuItem value="Resolved">Resolved</MenuItem>
+                      <MenuItem value="Rejected">Rejected</MenuItem>
+                    </Select>
+                  </TableCell>
                 </TableRow>
               ))
             )}
