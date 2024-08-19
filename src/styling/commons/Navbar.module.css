@@ -26,12 +26,18 @@
   margin-right: 0.5rem;
 }
 
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
 .mainNav {
   display: flex;
   list-style-type: none;
   gap: 1rem;
   font-family: 'Merriweather', serif;
-  flex-grow: 1;
   justify-content: center;
 }
 
@@ -131,21 +137,32 @@
     order: 1;
   }
 
-  .mainNav {
+  .navContent {
     flex-direction: column;
     width: 100%;
     display: none;
     order: 3;
   }
 
-  .mainNav.active {
+  .navContent.active {
     display: flex;
   }
 
-  .userActions {
+  .mainNav {
+    flex-direction: column;
     width: 100%;
-    justify-content: flex-end;
-    order: 2;
+  }
+
+  .userActions {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
+  .userActions button {
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 
   .logo {
