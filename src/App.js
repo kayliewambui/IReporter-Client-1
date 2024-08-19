@@ -22,12 +22,13 @@ import UserRecords from './features/userDashboard/components/UserRecords';
 import Redflags from './features/AdminDashboard/components/Redflags';
 import Interventions from './features/AdminDashboard/components/Interventions';
 import GeoLocation from './features/AdminDashboard/components/GeoLocation';
-// import Impact from './features/pages/components/Impact';
+import ImpactPage from './features/pages/components/ImpactPage';
 // import DataSecurity from './features/pages/components/DataSecurity';
-// import About from './features/pages/components/About';
+import AboutiReporter from './features/pages/components/AboutiReporter';
 // import Contact from './features/pages/components/Contact';
-// import FAQPage from './features/pages/components/FAQPage';
-// import PrivacyPolicyPage from './features/pages/components/PrivacyPolicyPage';
+import FaqPage from './features/pages/components/FaqPage';
+import PrivacyPolicy from './features/pages/components/PrivacyPolicy';
+import HowiReporterWorks from './features/pages/components/HowiReporterWorks';
 
 
 // Protected route component
@@ -72,13 +73,13 @@ function App() {
               <Route path="/interventions" element={<Interventions />} />
               <Route path="/geo-location" element={<GeoLocation />} />
               {/* <Route path="/notifications" element={<Notifications />} /> */}
-              {/* <Route path="/how-it-works" element={<HowItWorksPage />} />
-              <Route path="/impact" element={<Impact />} />
-              <Route path="/data-security" element={<DataSecurity />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<FAQPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} /> */}
+              <Route path="/how-it-works" element={<HowiReporterWorks />} />
+              <Route path="/impact" element={<ImpactPage />} />
+              {/* <Route path="/data-security" element={<DataSecurity />} /> */}
+              <Route path="/about" element={<AboutiReporter />} />
+              {/* <Route path="/contact" element={<Contact />} /> */}
+              <Route path="/faq" element={<FaqPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
               {/* Protected routes */}
               {/* <Route
