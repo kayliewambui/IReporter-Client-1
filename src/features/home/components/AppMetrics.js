@@ -1,24 +1,32 @@
-import React, { useRef, useLayoutEffect } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
 import styles from '../../../styling/home/AppMetrics.module.css';
 
-const StatisticItem = React.forwardRef(({ end, suffix, description }, ref) => (
+
+const StatisticItem = ({ end, suffix, description, key }) => (
   <div className={styles.statisticItem}>
-    <CountUp end={end} suffix={suffix} duration={2.5} className={styles.counter} ref={ref} />
+    <CountUp 
+      end={end} 
+      suffix={suffix} 
+      duration={2.5} 
+      className={styles.counter}
+      key={key}
+    />
     <p className={styles.description}>{description}</p>
   </div>
-));
+);
 
 const AppMetrics = () => {
-  const counterElements = useRef([]);
+  const [key, setKey] = useState(0);
 
-  useLayoutEffect(() => {
-    // Start the counter animations
-    counterElements.current.forEach((counterElement) => {
-      const countUpInstance = CountUp.factory(counterElement);
-      countUpInstance.start();
-    });
-  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setKey(prevKey => prevKey + 1);
+    }, 10000); // animate after 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -29,42 +37,56 @@ const AppMetrics = () => {
           end={1000}
           suffix="+"
           description="Voices raised against corruption"
-          ref={(el) => (counterElements.current[0] = el)}
+          key={`stat1-${key}`}
         />
         <StatisticItem
           end={10000}
           suffix="+"
           description="Citizens committed to change"
-          ref={(el) => (counterElements.current[1] = el)}
+          key={`stat2-${key}`}
         />
         <StatisticItem
           end={500}
           suffix="+"
           description="Real-world impacts achieved"
-          ref={(el) => (counterElements.current[2] = el)}
+          key={`stat3-${key}`}
         />
         <StatisticItem
           end={1000}
           suffix="+"
           description="Spreading accountability nationwide"
-          ref={(el) => (counterElements.current[3] = el)}
+          key={`stat4-${key}`}
         />
         <StatisticItem
           end={100}
           suffix="+"
           description="Partnering for action"
-          ref={(el) => (counterElements.current[4] = el)}
+          key={`stat5-${key}`}
         />
       </div>
 
       <div className={styles.additionalMetrics}>
         <div className={styles.metric}>
           <h3>Growth Metric</h3>
-          <p><CountUp end={300} suffix="%" duration={2.5} /> increase in resolved cases over the last year</p>
+          <p>
+            <CountUp 
+              end={300} 
+              suffix="%" 
+              duration={2.5}
+              key={`metric1-${key}`}
+            /> increase in resolved cases over the last year
+          </p>
         </div>
         <div className={styles.metric}>
           <h3>User Trust Rating</h3>
-          <p><CountUp end={4.8} decimals={1} duration={2.5} />/5 stars from 10,000+ user reviews</p>
+          <p>
+            <CountUp 
+              end={4.8} 
+              decimals={1} 
+              duration={2.5}
+              key={`metric2-${key}`}
+            />/5 stars from 10,000+ user reviews
+          </p>
         </div>
       </div>
 
