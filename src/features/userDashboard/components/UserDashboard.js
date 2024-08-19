@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../styling/usercss/UserDashboard.css';
 import UserSidebar from '../components/UserSidebar';
 import UserHeader from '../components/UserHeader';
+import { Link } from 'react-router-dom';
 
 const UserDashboard = () => {
   return (
@@ -25,7 +26,11 @@ const UserDashboard = () => {
             <p>Track your report’s progress and witness its impact. Be part of the solution as authorities take action.</p>
           </div>
         </div>
-        <div className="report-now">REPORT NOW</div>
+        <div className="report-now">
+        <Link to="/report" >
+        REPORT NOW
+        </Link>
+        </div>
         <div className="need-help">Need help?</div>
       </div>
     </div>
