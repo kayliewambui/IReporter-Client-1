@@ -14,7 +14,7 @@ const AdminSidebar = () => {
     <div className="sidebar">
       <h2>IReporter</h2>
       <List component="nav">
-        <Link to="/" className="sidebar-link">
+        <Link to="/admin" className="sidebar-link">
           <ListItem button>
             <ListItemIcon>
               <DashboardIcon />
