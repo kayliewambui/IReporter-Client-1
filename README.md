@@ -49,7 +49,7 @@ npm install --legacy-peer-deps``
 ```
 
 # Live Link
-[Vercel](i-reporter-client-1.vercel.app)
+[i-reporter-client-1.vercel.app]
 
 ## Technologies used
 Python Flask (Backend)
