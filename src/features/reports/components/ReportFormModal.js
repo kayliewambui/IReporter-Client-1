@@ -1,81 +1,50 @@
-import React, { useState } from 'react';
-import { X, Loader } from 'lucide-react';
+
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { X } from 'lucide-react';
 import ReportForm from './ReportForm';
+import styles from '../../../styling/reports/ReportModal.module.css';
 
-const ReportFormModal = ({ isOpen, onClose }) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+const ReportModalPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const navigate = useNavigate();
 
-  const handleSubmit = async (formData) => {
-    setIsSubmitting(true);
-    setError(null);
-    try {
-      const response = await fetch('https://ireporter-server-hb42.onrender.com/api/records', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to submit report');
-      }
-
-      const result = await response.json();
-      console.log('Report submitted successfully:', result);
-      setSuccess(true);
-    } catch (error) {
-      console.error('Error submitting report:', error);
-      setError(error.message || 'There was an error submitting your report. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    navigate('/'); // Navigate back to home page when modal is closed
   };
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    // Open the modal automatically when the page loads
+    setIsModalOpen(true);
+  }, []);
+
+  if (!isModalOpen) return null;
 
   return (
-    <div 
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-      onClick={onClose}
-    >
-      <div 
-        className="bg-white rounded-lg p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={e => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-deep-blue">Submit a Report</h2>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <div className={styles.modalHeader}>
+          <h2 className={styles.modalTitle}>Submit a Report</h2>
           <button 
-            onClick={onClose} 
-            className="text-gray-500 hover:text-gray-700" 
-            disabled={isSubmitting}
+            onClick={handleCloseModal} 
+            className={styles.closeButton}
             aria-label="Close modal"
           >
             <X size={24} />
           </button>
         </div>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
-        {success ? (
-          <div className="text-green-500 mb-4">
-            Report submitted successfully! Thank you for your contribution.
-            <button 
-              onClick={onClose}
-              className="mt-4 px-4 py-2 bg-deep-blue text-white rounded-md"
-            >
-              Close
-            </button>
-          </div>
-        ) : (
-          <ReportForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
-        )}
+        <ReportForm 
+          onSubmitSuccess={() => {
+            // Handle successful submission (e.g., show a success message)
+            alert('Report submitted successfully!');
+            handleCloseModal();
+          }}
+        />
       </div>
     </div>
   );
 };
 
-export default ReportFormModal;
+export default ReportModalPage;
