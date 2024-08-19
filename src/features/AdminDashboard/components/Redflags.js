@@ -21,7 +21,7 @@ const Redflags = () => {
         if (response.data.length === 0) {
           setError(true); // No records found
         } else {
-          console.log(data)
+          
           setRedflags(response.data);
         }
       } catch (error) {
