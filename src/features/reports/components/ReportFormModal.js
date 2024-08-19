@@ -6,25 +6,28 @@ import Login from '../../auth/components/Login';
 import Signup from '../../auth/components/Signup';
 import { useAuth } from '../../hooks/useAuth';
 
-
 const ReportFormModal = ({ isOpen, onClose }) => {
-  const { user, login, register, checkUserExists, sendVerificationEmail } = useAuth();
+  const { user, login, register, checkUserExists, sendVerificationEmail, loading } = useAuth();
   const [modalState, setModalState] = useState('initial');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [verificationSent, setVerificationSent] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      if (user.is_admin) {
-        setModalState('adminMessage');
-      } else if (!user.is_verified && Date.now() - new Date(user.created_at).getTime() > 24 * 60 * 60 * 1000) {
-        setModalState('verificationRequired');
+    if (!loading) {
+      if (user) {
+        if (user.is_admin) {
+          setModalState('adminMessage');
+        } else if (!user.is_verified && Date.now() - new Date(user.created_at).getTime() > 24 * 60 * 60 * 1000) {
+          setModalState('verificationRequired');
+        } else {
+          setModalState('form');
+        }
       } else {
-        setModalState('form');
+        setModalState('initial');
       }
     }
-  }, [user]);
+  }, [user, loading]);
 
   const handleSubmit = async (formData) => {
     setIsSubmitting(true);
@@ -33,7 +36,7 @@ const ReportFormModal = ({ isOpen, onClose }) => {
       if (user.is_admin) {
         throw new Error('Admins are not allowed to submit reports.');
       }
-      const response = await fetch('http://your-flask-api.com/reports', {
+      const response = await fetch('https://ireporter-server-hb42.onrender.com/api/records', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,6 +137,10 @@ const ReportFormModal = ({ isOpen, onClose }) => {
   };
 
   const renderContent = () => {
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
     switch (modalState) {
       case 'initial':
         return (
@@ -215,8 +222,6 @@ const ReportFormModal = ({ isOpen, onClose }) => {
         role="dialog"
         aria-modal="true"
       >
-
-        {/* Default state */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-deep-blue">
             {modalState === 'form' ? 'Submit a Report' : 'Authentication Required'}
