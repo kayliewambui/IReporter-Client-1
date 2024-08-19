@@ -18,6 +18,7 @@
     const [submitError, setSubmitError] = useState(null);
     const [files, setFiles] = useState([]);
     const [fileError, setFileError] = useState(null);
+    
   
     useEffect(() => {
       setProgress((step / 7) * 100);
@@ -67,6 +68,7 @@
       setIsSubmitting(true);
       setSubmitError(null);
       try {
+        const token = sessionStorage.getItem('access_token');
         // Upload files to Cloudinary
         const fileUrls = await Promise.all(files.map(uploadToCloudinary));
   
@@ -86,6 +88,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Authorization : `Bearer ${token}`,
           },
           body: JSON.stringify(recordData),
         });
