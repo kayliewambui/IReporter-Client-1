@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
 import '../../../styling/admincss/Redflags.css';
 
@@ -21,6 +21,7 @@ const Redflags = () => {
         if (response.data.length === 0) {
           setError(true); // No records found
         } else {
+          console.log(data)
           setRedflags(response.data);
         }
       } catch (error) {
@@ -32,9 +33,33 @@ const Redflags = () => {
     fetchRedflags();
   }, []);
 
+  const handleStatusChange = async (publicId, newStatus) => {
+    try {
+      const token = sessionStorage.getItem('access_token');
+      await axios.patch(
+        `https://ireporter-server-hb42.onrender.com/api/records/${publicId}`,
+        { status: newStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Update the local state to reflect the status change
+      setRedflags((prevRedflags) =>
+        prevRedflags.map((redflag) =>
+          redflag.publicId === publicId ? { ...redflag, status: newStatus } : redflag
+        )
+      );
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
+
   return (
     <div>
-      <Typography variant="h4">Redflags</Typography>
+      <Typography variant="h4">Red Flags</Typography>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -62,7 +87,16 @@ const Redflags = () => {
                     ))}
                   </TableCell>
                   <TableCell>{redflag.location}</TableCell>
-                  <TableCell>{redflag.status}</TableCell>
+                  <TableCell>
+                    <Select
+                      value={redflag.status}
+                      onChange={(e) => handleStatusChange(redflag.publicId, e.target.value)}
+                    >
+                      <MenuItem value="Under Investigation">Under Investigation</MenuItem>
+                      <MenuItem value="Resolved">Resolved</MenuItem>
+                      <MenuItem value="Rejected">Rejected</MenuItem>
+                    </Select>
+                  </TableCell>
                 </TableRow>
               ))
             )}
