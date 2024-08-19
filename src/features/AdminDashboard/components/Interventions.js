@@ -1,4 +1,3 @@
-// src/Components/Interventions/Interventions.js
 import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import axios from 'axios';
@@ -6,14 +5,27 @@ import '../../../styling/admincss/Interventions.css';
 
 const Interventions = () => {
   const [interventions, setInterventions] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchInterventions = async () => {
       try {
-        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records?type=intervention');
-        setInterventions(response.data);
+        const token = sessionStorage.getItem('access_token');
+
+        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/interventions', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (response.data.length === 0) {
+          setError(true); // No records found
+        } else {
+          setInterventions(response.data);
+        }
       } catch (error) {
         console.error('Error fetching interventions:', error);
+        setError(true);
       }
     };
 
@@ -29,21 +41,34 @@ const Interventions = () => {
             <TableRow>
               <TableCell>Public ID</TableCell>
               <TableCell>Description</TableCell>
-              <TableCell>Image/Video</TableCell>
+              <TableCell>Media</TableCell>
               <TableCell>Location</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {interventions.map((intervention) => (
-              <TableRow key={intervention.id}>
-                <TableCell>{intervention.publicId}</TableCell>
-                <TableCell>{intervention.description}</TableCell>
-                <TableCell>{intervention.media}</TableCell>
-                <TableCell>{intervention.location}</TableCell>
-                <TableCell>{intervention.status}</TableCell>
+            {error ? (
+              <TableRow>
+                <TableCell colSpan={5} align="center">No records found</TableCell>
               </TableRow>
-            ))}
+            ) : (
+              interventions.map((intervention) => (
+                <TableRow key={intervention.public_id}>
+                  <TableCell>{intervention.public_id}</TableCell>
+                  <TableCell>{intervention.description}</TableCell>
+                  <TableCell>
+                    {intervention.images && intervention.images.map((image, index) => (
+                      <img key={index} src={image} alt={`Intervention ${index + 1}`} className="intervention-media" style={{ maxWidth: '100px', marginRight: '10px' }} />
+                    ))}
+                    {intervention.videos && intervention.videos.map((video, index) => (
+                      <video key={index} src={video} controls className="intervention-media" style={{ maxWidth: '100px', marginRight: '10px' }}></video>
+                    ))}
+                  </TableCell>
+                  <TableCell>{intervention.location}</TableCell>
+                  <TableCell>{intervention.status}</TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>

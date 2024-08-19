@@ -47,14 +47,14 @@ const AdminSidebar = () => {
           </ListItem>
         </Link>
         <Divider />
-        <Link to="/settings" className="sidebar-link">
+        {/* <Link to="/settings" className="sidebar-link">
           <ListItem button>
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
-        </Link>
+        </Link> */}
         <Link to="/logout" className="sidebar-link">
           <ListItem button>
             <ListItemIcon>
