@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 import { AuthProvider } from './features/contexts/AuthContext';
 import { useAuth } from './features/hooks/useAuth';
-import UserRecords from './features/userDashboard/components/UserRecords';
 import UserNotifications from './features/userDashboard/components/UserNotifications';
 
 // Common components
@@ -18,6 +17,10 @@ import Signup from './features/auth/components/Signup';
 import Forgotpassword from './features/auth/components/Forgotpassword';
 import User from './features/pages/components/User'; 
 import Admin from './features/pages/components/Admin';
+import UserRecords from './features/userDashboard/components/UserRecords';
+import Redflags from './features/AdminDashboard/components/Redflags';
+import Interventions from './features/AdminDashboard/components/Interventions';
+import GeoLocation from './features/AdminDashboard/components/GeoLocation';
 
 // Protected route component
 // const ProtectedRoute = ({ children, role }) => {
@@ -57,7 +60,11 @@ function App() {
               <Route path="/user" element={<User />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/pastrecords" element={<UserRecords />} />
-              <Route path="/notifications" element={<UserNotifications />} />
+              <Route path="/redflags" element={<Redflags />} />
+              <Route path="/interventions" element={<Interventions />} />
+              <Route path="/geo-location" element={<Interventions />} />
+              <Route path="/notifications" element={<GeoLocation />} />
+
               {/* Protected routes */}
               {/* <Route
                 path="/user"
