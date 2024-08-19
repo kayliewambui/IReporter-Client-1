@@ -1,81 +1,93 @@
 /* components/HowItWorks/HowItWorks.module.css */
 .howItWorks {
-    background-color: #ffffff;
-    padding: 5rem 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
+  background-color: #ffffff;
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.highlight {
+  color: #FF6600;
+}
+
+.intro{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  background-color: #FF6600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 0.5rem;
+  font-family: 'Merriweather', serif
+}
+
+.stepDescription {
+  font-size: 1rem;
+  color: #111111;
+  line-height: 1.5;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+}
+
+/* media queries */
+@media (max-width: 768px) {
   .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #003366;
-    margin-bottom: 3rem;
-    text-align: left;
-  }
-  
-  .highlight {
-    color: #FF6600;
-  }
-  
-  .stepsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-  
-  .iconContainer {
-    flex-shrink: 0;
-  }
-  
-  .icon {
-    width: 60px;
-    height: 60px;
-    background-color: #FF6600;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 2rem;
   }
-  
-  .stepContent {
-    flex: 1;
+
+  .step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
   }
-  
-  .stepTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #003366;
-    margin-bottom: 0.5rem;
-  }
-  
-  .stepDescription {
-    font-size: 1rem;
-    color: #4a5568;
-    line-height: 1.5;
-  }
-  
-  /* media queries */
-  @media (max-width: 768px) {
-    .title {
-      font-size: 2rem;
-    }
-  
-    .step {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-    }
-  }
+}
