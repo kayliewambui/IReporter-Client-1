@@ -1,129 +1,112 @@
-import React, { useState, useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import ReportFormLocationInput from './ReportFormLocationInput';
-import styles from '../../../styling/reports/MultiStepForm.module.css';
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-
-const MultiStepForm = ({ existingReport = null }) => {
-  const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(0);
-  const { control, handleSubmit, watch, formState: { errors }, setValue, getValues, setError } = useForm({
-    defaultValues: existingReport || {}
-  });
-  const watchType = watch("record_type");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
-  const [files, setFiles] = useState([]);
-  const [fileError, setFileError] = useState(null);
-
-  useEffect(() => {
-    setProgress((step / 7) * 100);
-  }, [step]);
-
-  const handleFileChange = (event) => {
-    const newFiles = Array.from(event.target.files);
-    setFileError(null);
-
-    newFiles.forEach(file => {
-      if (file.size > MAX_FILE_SIZE) {
-        setFileError(`${file.name} is too large. Maximum size is 5MB.`);
-        return;
-      }
-
-      if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
-        setFiles(prev => [...prev, file]);
-      } else {
-        setFileError(`${file.name} is not a supported file type.`);
-      }
-    });
-  };
-
-  const removeFile = (index) => {
-    setFiles(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const uploadToCloudinary = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'your_upload_preset');
-
-    const response = await fetch(`https://api.cloudinary.com/v1_1/dycrqnjcs/auto/upload`, {
-      method: 'POST',
-      body: formData
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to upload file to Cloudinary');
-    }
-
-    const data = await response.json();
-    return data.secure_url;
-  };
-
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    setSubmitError(null);
-    try {
-      // First, create the record
-      const recordData = {
-        record_type: data.record_type,
-        description: data.description,
-        location: data.location,
-        latitude: data.latitude,
-        longitude: data.longitude,
-        additional_info: data.additionalInfo
-      };
-
-      const recordResponse = await fetch('https://ireporter-server-hb42.onrender.com"/records', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(recordData)
+  
+  import React, { useState, useEffect } from 'react';
+  import { useForm, Controller } from 'react-hook-form';
+  import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
+  import { CSSTransition, TransitionGroup } from 'react-transition-group';
+  import ReportFormLocationInput from './ReportFormLocationInput';
+  import styles from '../../../styling/reports/MultiStepForm.module.css';
+  
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+  
+  const MultiStepForm = ({ onSubmitSuccess }) => {
+    const [step, setStep] = useState(1);
+    const [progress, setProgress] = useState(0);
+    const { control, handleSubmit, watch, formState: { errors }, setValue, getValues, setError } = useForm();
+    const watchType = watch("record_type");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
+    const [files, setFiles] = useState([]);
+    const [fileError, setFileError] = useState(null);
+  
+    useEffect(() => {
+      setProgress((step / 7) * 100);
+    }, [step]);
+  
+    const handleFileChange = (event) => {
+      const newFiles = Array.from(event.target.files);
+      setFileError(null);
+  
+      newFiles.forEach(file => {
+        if (file.size > MAX_FILE_SIZE) {
+          setFileError(`${file.name} is too large. Maximum size is 5MB.`);
+          return;
+        }
+  
+        if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+          setFiles(prev => [...prev, file]);
+        } else {
+          setFileError(`${file.name} is not a supported file type.`);
+        }
       });
-
-      if (!recordResponse.ok) {
-        throw new Error('Failed to create record');
+    };
+  
+    const removeFile = (index) => {
+      setFiles(prev => prev.filter((_, i) => i !== index));
+    };
+  
+    const uploadToCloudinary = async (file) => {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', 'your_upload_preset');
+  
+      const response = await fetch(`https://api.cloudinary.com/v1_1/dycrqnjcs/auto/upload`, {
+        method: 'POST',
+        body: formData
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to upload file to Cloudinary');
       }
-
-      const record = await recordResponse.json();
-      const recordId = record.id;
-
-      // Then, upload each file and associate it with the record
-      for (const file of files) {
-        const cloudinaryUrl = await uploadToCloudinary(file);
-        
-        const fileData = new FormData();
-        fileData.append('file', cloudinaryUrl);
-        fileData.append('record_id', recordId);
-
-        const fileResponse = await fetch('https://ireporter-server-hb42.onrender.com"/images', {
+  
+      const data = await response.json();
+      return data.secure_url;
+    };
+  
+    const onSubmit = async (data) => {
+      setIsSubmitting(true);
+      setSubmitError(null);
+      try {
+        // Upload files to Cloudinary
+        const fileUrls = await Promise.all(files.map(uploadToCloudinary));
+  
+        // Prepare the record data
+        const recordData = {
+          record_type: data.record_type,
+          description: data.description,
+          location: data.location,
+          latitude: data.latitude,
+          longitude: data.longitude,
+          additional_info: data.additionalInfo,
+          files: fileUrls
+        };
+  
+        // Submit the report
+        const response = await fetch('https://ireporter-server-hb42.onrender.com/api/records', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Content-Type': 'application/json',
           },
-          body: fileData
+          body: JSON.stringify(recordData),
         });
-
-        if (!fileResponse.ok) {
-          throw new Error(`Failed to upload file`);
+  
+        if (!response.ok) {
+          throw new Error('Failed to submit report');
         }
+  
+        const result = await response.json();
+        console.log('Report submitted successfully:', result);
+        onSubmitSuccess();
+      } catch (error) {
+        console.error('Error submitting report:', error);
+        setSubmitError('There was an error submitting your report. Please try again.');
+      } finally {
+        setIsSubmitting(false);
       }
-
-      console.log('Report and files submitted successfully');
-      setStep(7); // Move to success step
-    } catch (error) {
-      console.error('Error submitting report:', error);
-      setSubmitError('There was an error submitting your report. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+    };
+  
+  
+  
   const handleNext = () => {
     switch(step) {
       case 1:
