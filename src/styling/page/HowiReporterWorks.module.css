@@ -1,0 +1,60 @@
+/* HowiReporterWorks.module.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+  }
+  
+  .section {
+    margin-bottom: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  .list {
+    list-style-type: decimal;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  .listItem {
+    margin-bottom: 1rem;
+  }
+  
+  .itemTitle {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .itemDescription {
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  
+  
+  
