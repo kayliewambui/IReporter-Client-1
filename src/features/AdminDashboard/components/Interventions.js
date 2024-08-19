@@ -10,7 +10,6 @@ const Interventions = () => {
   useEffect(() => {
     const fetchInterventions = async () => {
       try {
-        // Get the JWT token from sessionStorage
         const token = sessionStorage.getItem('access_token');
 
         const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/interventions', {
@@ -59,10 +58,10 @@ const Interventions = () => {
                   <TableCell>{intervention.description}</TableCell>
                   <TableCell>
                     {intervention.images && intervention.images.map((image, index) => (
-                      <img key={index} src={image} alt={`Intervention ${index}`} className="intervention-media" />
+                      <img key={index} src={image} alt={`Intervention ${index + 1}`} className="intervention-media" style={{ maxWidth: '100px', marginRight: '10px' }} />
                     ))}
                     {intervention.videos && intervention.videos.map((video, index) => (
-                      <video key={index} src={video} controls className="intervention-media"></video>
+                      <video key={index} src={video} controls className="intervention-media" style={{ maxWidth: '100px', marginRight: '10px' }}></video>
                     ))}
                   </TableCell>
                   <TableCell>{intervention.location}</TableCell>

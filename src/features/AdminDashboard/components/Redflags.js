@@ -12,7 +12,7 @@ const Redflags = () => {
       try {
         const token = sessionStorage.getItem('access_token');
 
-        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/interventions', {
+        const response = await axios.get('https://ireporter-server-hb42.onrender.com/api/records/red-flags', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -41,7 +41,7 @@ const Redflags = () => {
             <TableRow>
               <TableCell>Public ID</TableCell>
               <TableCell>Description</TableCell>
-              <TableCell>Media</TableCell>
+              <TableCell>Images</TableCell>
               <TableCell>Location</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
@@ -53,10 +53,14 @@ const Redflags = () => {
               </TableRow>
             ) : (
               redflags.map((redflag) => (
-                <TableRow key={redflag.id}>
+                <TableRow key={redflag.publicId}>
                   <TableCell>{redflag.publicId}</TableCell>
                   <TableCell>{redflag.description}</TableCell>
-                  <TableCell>{redflag.media}</TableCell>
+                  <TableCell>
+                    {redflag.images.map((image, index) => (
+                      <img key={index} src={image} alt='record_image' style={{ maxWidth: '100px', marginRight: '10px' }} />
+                    ))}
+                  </TableCell>
                   <TableCell>{redflag.location}</TableCell>
                   <TableCell>{redflag.status}</TableCell>
                 </TableRow>
