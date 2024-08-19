@@ -1,4 +1,4 @@
-.modalOverlay {
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,86 +11,89 @@
     z-index: 1000;
   }
   
-  .modalContent {
-    background-color: #ffffff;
+  .modal-content {
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 32px;
     width: 90%;
     max-width: 600px;
+    font-family: 'Merriweather', serif;
   }
   
-  .modalHeader {
+  .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
   }
   
-  .modalTitle {
+  .modal-title {
     font-size: 24px;
     font-weight: 600;
     color: #0077b6;
   }
   
-  .closeButton {
+  .close-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #888888;
+    color: #888;
     transition: color 0.3s ease;
   }
   
-  .closeButton:hover {
+  .close-button:hover {
     color: #0077b6;
   }
   
-  .reportForm {
+  .report-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
   
-  .formField {
+  .form-field {
     display: flex;
     flex-direction: column;
   }
   
-  .formLabel {
+  .form-label {
     font-size: 16px;
     font-weight: 500;
-    color: #333333;
+    color: #333;
     margin-bottom: 8px;
   }
   
-  .formInput,
-  .formTextarea {
+  .form-input,
+  .form-textarea {
     padding: 12px 16px;
     border: 1px solid #d0d0d0;
     border-radius: 4px;
     font-size: 16px;
-    color: #333333;
+    color: #333;
+    font-family: 'Merriweather', serif;
     transition: border-color 0.3s ease;
   }
   
-  .formInput:focus,
-  .formTextarea:focus {
-    border-color: #0077b6;
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #004aad;
     outline: none;
   }
   
-  .formSubmitButton {
-    background-color: #0077b6;
-    color: #ffffff;
+  .form-submit-button {
+    background-color: #004aad;
+    color: #fff;
     border: none;
     border-radius: 4px;
     padding: 12px 24px;
     font-size: 16px;
     font-weight: 500;
+    font-family: 'Merriweather', serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
-  .formSubmitButton:hover {
-    background-color: #005c8b;
+  .form-submit-button:hover {
+    background-color: #004aad;
   }
