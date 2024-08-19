@@ -1,7 +1,22 @@
-// components/Hero.js
 import React from 'react';
 import styles from '../../../styling/home/Hero.module.css';
 import Navbar from '../../common/components/Navbar';
+
+const ProgressIndicator = ({ resolved, total }) => {
+  const percentage = (resolved / total) * 100;
+  return (
+    <div className={styles.progressIndicator}>
+      <p className={styles.progressTitle}>Case Resolution</p>
+      <div className={styles.progressBar}>
+        <div
+          className={styles.progressFill}
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+      <p className={styles.progressText}>{resolved} of {total} cases resolved</p>
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
@@ -26,23 +41,20 @@ const Hero = () => {
         </div>
         <div className={styles.rightColumn}>
           <div className={styles.reportVisualization}>
-            {/* visualization component for later to be added */}
+            <ProgressIndicator resolved={7500} total={10000} />
           </div>
           <div className={styles.stats}>
             <div className={styles.statCard}>
               <span>100%</span>
               <span>Anonymous</span>
-              
-            </div>
-
-            <div className={styles.statCard}>
-              <span>100%</span>
-              <span>Anonymous</span>
-              
             </div>
             <div className={styles.statCard}>
               <span>10,000+</span>
-              <span>Reports Resolved</span>
+              <span>Reports Submitted</span>
+            </div>
+            <div className={styles.statCard}>
+              <span>75%</span>
+              <span>Resolution Rate</span>
             </div>
             <div className={styles.statCard}>
               <span>24/7</span>
@@ -56,6 +68,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-

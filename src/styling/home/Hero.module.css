@@ -1,136 +1,173 @@
 /* components/Hero.module.css */
 .hero {
-    background: linear-gradient(135deg, #1228F3 0%, #001a33 100%);
-    min-height: 100vh;
-    color: #ffffff;
-    padding: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
+  background: linear-gradient(135deg, #1228F3 0%, #001a33 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aiBadge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  max-width: 80%;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  max-width: 80%;
+  color:#fffff0 ;
+  font-weight: 600;
+}
+
+.ctaButton {
+  background-color: #FF6600;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+  font-family: 'Raleway', sans-serif;
+}
+
+.ctaButton:hover {
+  background-color: #E55C00;
+}
+
+.rightColumn {
+  position: relative;
+}
+
+.reportVisualization {
+  width: 100%;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+}
+
+.statCard span:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.statCard span:last-child {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* New styles for the visualization */
+.progressIndicator {
+  width: 100%;
+}
+
+.progressTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.progressBar {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s ease-in-out;
+}
+
+.progressText {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+/* media queries */
+@media (max-width: 768px) {
   .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 4rem;
-    padding: 0 2rem;
-  }
-  
-  .leftColumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .aiBadge {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 1rem;
-    width: fit-content;
-    margin-bottom: 1rem;
-    font-family:Verdana, Geneva, Tahoma, sans-serif ;
-    color: #ffffff;
+    grid-template-columns: 1fr;
   }
   
   .title {
-    font-size: 4rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: 3rem;
   }
   
   .subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    max-width: 80%;
-    font-weight: bold;
-  }
-  
-  .description {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    max-width: 80%;
-    color:#fffff0 ;
-    font-weight: 600;
-  }
-  
-  .ctaButton {
-    background-color: #FF6600;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: fit-content;
-    font-family: 'Raleway', sans-serif;
-  }
-  
-  .ctaButton:hover {
-    background-color: #E55C00;
-  }
-  
-  .rightColumn {
-    position: relative;
-  }
-  
-  .reportVisualization {
-    width: 100%;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    overflow: hidden;
+    font-size: 1.2rem;
   }
   
   .stats {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .statCard {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 120px;
-    height: 120px;
   }
-  
-  .statCard span:first-child {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .statCard span:last-child {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    text-align: center;
-  }
-  
-  /* media queries */
-  @media (max-width: 768px) {
-    .content {
-      grid-template-columns: 1fr;
-    }
-    
-    .title {
-      font-size: 3rem;
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-    }
-    
-    .stats {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
+}

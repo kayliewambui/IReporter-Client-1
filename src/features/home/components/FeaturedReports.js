@@ -13,21 +13,21 @@ const FeaturedReports = () => {
       icon: <FaGraduationCap />,
       image: schoolImage,
       description: '10 million recovered and redirected. School renovation completed in 3 months',
-      link: '/impact/education'
+      link: '/impact'
     },
     {
       title: 'Clean Water Access Restored',
       icon: <FaWater />,
       image: waterImage,
       description: 'Project revived. Clean water now reaches 5,000 residents.',
-      link: '/impact/water'
+      link: '/impact'
     },
     {
       title: 'Road Safety Improved',
       icon: <FaRoad />,
       image: roadImage,
       description: 'Roads rebuilt to proper standards. Traffic accidents decreased by 60%.',
-      link: '/impact/roads'
+      link: '/impact'
     }
   ];
 

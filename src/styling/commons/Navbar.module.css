@@ -1,97 +1,155 @@
 /* components/Navbar.module.css */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1.5rem;
-    background-color: #D9D9D9;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    margin: 1rem;
-    margin-left: 1rem;  
-    margin-right: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #D9D9D9;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 1rem;
+  margin-left: 1rem;
+  margin-right: 5rem;
 }
-  
-  .logo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #2C2C2C;
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.logoIcon {
+  margin-right: 0.5rem;
+}
+
+.mainNav {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+  font-family: 'Merriweather', serif;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.mainNav li {
+  white-space: nowrap;
+}
+
+.mainNav a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+.mainNav a:hover {
+  background-color: #f2f2f2;
+}
+
+.mainNav a.active {
+  background-color: #e9b999;
+}
+
+.userActions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.loginButton, .signupButton, .logoutButton {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-family: 'Merriweather', serif;
+}
+
+.loginButton:hover, .signupButton:hover, .logoutButton:hover {
+  background-color: #f2f2f2;
+}
+
+.reportNowButton {
+  background-color: #FF6600;
+  color: #ffffff;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.reportNowButton:hover {
+  background-color: #e55c00;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000000;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .hamburger {
     display: flex;
-    align-items: center;
+    order: 1;
   }
-  
-  .logoIcon {
-    margin-right: 0.5rem;
-  }
-  
+
   .mainNav {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    order: 3;
+  }
+
+  .mainNav.active {
     display: flex;
-    list-style-type: none;
-    gap: 2rem;
-    }
-  
-  .mainNav a {
-    color: #1228F3;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    font-weight:bold;  
   }
-  
-  .mainNav a:hover {
-    color: #FF6600;
-  }
-  
+
   .userActions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    order: 2;
   }
-  
-  .loginButton, .signupButton {
-    background: none;
-    border: none;
-    color: #1228F3;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    font-weight:bold;  
+
+  .logo {
+    flex-grow: 1;
+    order: 0;
   }
-  
-  .loginButton:hover, .signupButton:hover {
-    color: #FF6600;
-  }
-  
-  .reportNowButton {
-    background-color: #FF6600;
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .reportNowButton:hover {
-    background-color: #e55c00;
-  }
-/* 
-  media queries */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .mainNav, .userActions {
-      margin-top: 1rem;
-    }
-  
-    .userActions {
-      width: 100%;
-      justify-content: space-between;
-    }
-  }
+}
