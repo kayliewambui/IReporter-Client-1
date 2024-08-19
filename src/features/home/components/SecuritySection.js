@@ -4,8 +4,9 @@ import { MdPrivacyTip, MdLock, MdShield, MdVerifiedUser, MdCheckCircle } from 'r
 import styles from '../../../styling/home/SecuritySection.module.css'
 
 import badge1 from '../../../assets/images/kdpa.jpg';
-import badge2 from '../../../assets/images/gdpr.jpg';
-import badge3 from '../../../assets/images/securityaudit.png';
+import badge2 from '../../../assets/images/iso.png';
+import badge3 from '../../../assets/images/gdpr.jpg';
+import badge4 from '../../../assets/images/securityaudit.png';
 
 
 const SecuritySection = () => {
@@ -58,9 +59,10 @@ const SecuritySection = () => {
           </p>
 
            <div className={styles.trustBadges}>
-            <TrustBadge image={badge1} label="ISO 27001 Certified" />
-            <TrustBadge image={badge2} label="GDPR Compliant" />
-            <TrustBadge image={badge3} label="Regular Security Audits" />
+           <TrustBadge image={badge1} label="Kenya Data Protect Act Compliant" />
+            <TrustBadge image={badge2} label="ISO 27001 Certified" />
+            <TrustBadge image={badge3} label="GDPR Compliant" />
+            <TrustBadge image={badge4} label="Regular Security Audits" />
           </div>
 
 
