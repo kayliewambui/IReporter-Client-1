@@ -105,8 +105,6 @@
       }
     };
   
-  
-  
   const handleNext = () => {
     switch(step) {
       case 1:

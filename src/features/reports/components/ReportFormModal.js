@@ -1,7 +1,9 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
-import MultiStepForm from './MultiStepForm';
+import ReportForm from './ReportForm';
 import styles from '../../../styling/reports/ReportModal.module.css';
 
 const ReportModalPage = () => {
@@ -33,7 +35,7 @@ const ReportModalPage = () => {
             <X size={24} />
           </button>
         </div>
-        <MultiStepForm 
+        <ReportForm 
           onSubmitSuccess={() => {
             // Handle successful submission (e.g., show a success message)
             alert('Report submitted successfully!');
