@@ -46,23 +46,23 @@
       setFiles(prev => prev.filter((_, i) => i !== index));
     };
   
-    const uploadToCloudinary = async (file) => {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', 'your_upload_preset');
+    // const uploadToCloudinary = async (file) => {
+    //   const formData = new FormData();
+    //   formData.append('file', file);
+    //   formData.append('upload_preset', 'your_upload_preset');
   
-      const response = await fetch(`https://api.cloudinary.com/v1_1/dycrqnjcs/auto/upload`, {
-        method: 'POST',
-        body: formData
-      });
+    //   const response = await fetch(`https://api.cloudinary.com/v1_1/dycrqnjcs/auto/upload`, {
+    //     method: 'POST',
+    //     body: formData
+    //   });
   
-      if (!response.ok) {
-        throw new Error('Failed to upload file to Cloudinary');
-      }
+    //   if (!response.ok) {
+    //     throw new Error('Failed to upload file to Cloudinary');
+    //   }
   
-      const data = await response.json();
-      return data.secure_url;
-    };
+    //   const data = await response.json();
+    //   return data.secure_url;
+    // };
   
     const onSubmit = async (data) => {
       setIsSubmitting(true);
