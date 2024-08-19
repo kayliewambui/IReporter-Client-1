@@ -25,7 +25,7 @@ const UserSidebar = () => {
             <ListItemText primary="Dashboard" />
           </ListItem>
         </Link>
-        <Link to="/records" className="link">
+        <Link to="/pastrecords" className="link">
           <ListItem button>
             <ListItemIcon className="icon">
               <DescriptionIcon />

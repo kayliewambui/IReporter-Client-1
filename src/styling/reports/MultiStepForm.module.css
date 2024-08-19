@@ -42,6 +42,8 @@
     font-size: 1.5rem;
     color: #004aad;
     margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+
   }
   
   .stepIcon {
@@ -50,8 +52,9 @@
   
   .stepDescription {
     font-size: 1rem;
-    color: #333;
+    color: #000000;
     margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
   }
   
   .buttonGroup {

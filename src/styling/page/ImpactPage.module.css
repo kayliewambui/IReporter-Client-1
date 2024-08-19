@@ -1,0 +1,74 @@
+/* ImpactPage.module.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .introduction {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+  }
+  
+  .section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    margin-right: 2rem;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  .conclusion {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-top: 2rem;
+  }
+  
+  .callToAction {
+    display: block;
+    background-color: #ff6b00;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    margin: 2rem auto 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .callToAction:hover {
+    background-color: #d65600;
+  }
