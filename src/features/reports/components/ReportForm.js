@@ -1,84 +1,122 @@
-import React, { useState, useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import ReportFormLocationInput from './ReportFormLocationInput';
-import styles from '../../../styling/reports/MultiStepForm.module.css';
 
-const MultiStepForm = ({ existingReport = null }) => {
-  const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(0);
-  const { control, handleSubmit, watch, formState: { errors }, setValue, getValues, setError } = useForm({
-    defaultValues: existingReport || {}
-  });
-  const watchType = watch("reportType");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
-  const [files, setFiles] = useState(existingReport?.files || []);
-
-  useEffect(() => {
-    setProgress((step / 7) * 100);
-  }, [step]);
-
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    setSubmitError(null);
-    try {
-      const formData = new FormData();
-      Object.keys(data).forEach(key => {
-        formData.append(key, data[key]);
+  
+  import React, { useState, useEffect } from 'react';
+  import { useForm, Controller } from 'react-hook-form';
+  import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
+  import { CSSTransition, TransitionGroup } from 'react-transition-group';
+  import ReportFormLocationInput from './ReportFormLocationInput';
+  import styles from '../../../styling/reports/MultiStepForm.module.css';
+  
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+  
+  const MultiStepForm = ({ onSubmitSuccess }) => {
+    const [step, setStep] = useState(1);
+    const [progress, setProgress] = useState(0);
+    const { control, handleSubmit, watch, formState: { errors }, setValue, getValues, setError } = useForm();
+    const watchType = watch("record_type");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
+    const [files, setFiles] = useState([]);
+    const [fileError, setFileError] = useState(null);
+    
+  
+    useEffect(() => {
+      setProgress((step / 7) * 100);
+    }, [step]);
+  
+    const handleFileChange = (event) => {
+      const newFiles = Array.from(event.target.files);
+      setFileError(null);
+  
+      newFiles.forEach(file => {
+        if (file.size > MAX_FILE_SIZE) {
+          setFileError(`${file.name} is too large. Maximum size is 5MB.`);
+          return;
+        }
+  
+        if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+          setFiles(prev => [...prev, file]);
+        } else {
+          setFileError(`${file.name} is not a supported file type.`);
+        }
       });
-      files.forEach((file, index) => {
-        formData.append(`file${index}`, file);
-      });
-
-      const url = existingReport 
-        ? `http://localhost:3000/reports/${existingReport.id}` 
-        : 'http://localhost:3000/reports';
-      const method = existingReport ? 'PUT' : 'POST';
-
-      const response = await fetch(url, {
-        method: method,
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit report');
+    };
+  
+    const removeFile = (index) => {
+      setFiles(prev => prev.filter((_, i) => i !== index));
+    };
+  
+    // const uploadToCloudinary = async (file) => {
+    //   const formData = new FormData();
+    //   formData.append('file', file);
+    //   formData.append('upload_preset', 'your_upload_preset');
+  
+    //   const response = await fetch(`https://api.cloudinary.com/v1_1/dycrqnjcs/auto/upload`, {
+    //     method: 'POST',
+    //     body: formData
+    //   });
+  
+    //   if (!response.ok) {
+    //     throw new Error('Failed to upload file to Cloudinary');
+    //   }
+  
+    //   const data = await response.json();
+    //   return data.secure_url;
+    // };
+  
+    const onSubmit = async (data) => {
+      setIsSubmitting(true);
+      setSubmitError(null);
+      try {
+        const token = sessionStorage.getItem('access_token');
+    
+        const formData = new FormData();
+        formData.append('record_type', data.record_type);
+        formData.append('description', data.description);
+        formData.append('location', data.location);
+        formData.append('latitude', data.latitude);
+        formData.append('longitude', data.longitude);
+        formData.append('additional_info', data.additionalInfo);
+    
+        // Append files to FormData
+        files.forEach(file => formData.append('files', file));
+    
+        // Submit the report with files to the backend
+        const response = await fetch('https://ireporter-server-hb42.onrender.com/api/records', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to submit report');
+        }
+    
+        const result = await response.json();
+        console.log('Report submitted successfully:', result);
+        onSubmitSuccess();
+      } catch (error) {
+        console.error('Error submitting report:', error);
+        setSubmitError('There was an error submitting your report. Please try again.');
+      } finally {
+        setIsSubmitting(false);
       }
-
-      const result = await response.json();
-      console.log('Report submitted successfully:', result);
-      setStep(7); // Move to success step
-    } catch (error) {
-      console.error('Error submitting report:', error);
-      setSubmitError('There was an error submitting your report. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleFileChange = (event) => {
-    const newFiles = Array.from(event.target.files);
-    setFiles(prevFiles => [...prevFiles, ...newFiles]);
-  };
-
-  const handleLocationChange = (locationData) => {
-    setValue('location', locationData.address);
-    setValue('latitude', locationData.lat);
-    setValue('longitude', locationData.lng);
-  };
-
+    };
+    
+  
   const handleNext = () => {
     switch(step) {
       case 1:
-        if (getValues('reportType')) {
+        if (getValues('record_type')) {
           setStep(step + 1);
         } else {
-          setError('reportType', { type: 'required', message: 'Please select a report type' });
+          setError('record_type', { type: 'required', message: 'Please select a report type' });
         }
         break;
       case 2:
-        if (getValues('description') && getValues('description').length >= 20) {
+        if (getValues('description') && getValues('description').length >= 5) {
           setStep(step + 1);
         } else {
           setError('description', { type: 'required', message: 'Please provide a description of at least 20 characters' });
@@ -114,7 +152,7 @@ const MultiStepForm = ({ existingReport = null }) => {
             </h2>
             <p className={styles.stepDescription}>Select the type of report you'd like to submit:</p>
             <Controller
-              name="reportType"
+              name="record_type"
               control={control}
               rules={{ required: "Please select a report type" }}
               render={({ field }) => (
@@ -136,7 +174,7 @@ const MultiStepForm = ({ existingReport = null }) => {
                 </div>
               )}
             />
-            {errors.reportType && <p className={styles.errorMessage}>{errors.reportType.message}</p>}
+            {errors.record_type && <p className={styles.errorMessage}>{errors.record_type.message}</p>}
           </div>
         );
       case 2:
@@ -175,7 +213,11 @@ const MultiStepForm = ({ existingReport = null }) => {
               rules={{ required: "Please provide a location" }}
               render={({ field }) => (
                 <ReportFormLocationInput
-                  onLocationChange={handleLocationChange}
+                  onLocationChange={(locationData) => {
+                    field.onChange(locationData.address);
+                    setValue('latitude', locationData.lat);
+                    setValue('longitude', locationData.lng);
+                  }}
                   initialValue={field.value}
                 />
               )}
@@ -189,24 +231,29 @@ const MultiStepForm = ({ existingReport = null }) => {
             <h2 className={styles.stepTitle}>
               <Upload className={styles.stepIcon} /> Upload Evidence
             </h2>
-            <p className={styles.stepDescription}>Upload any relevant photos or documents:</p>
+            <p className={styles.stepDescription}>Upload any relevant photos or videos:</p>
             <div className={styles.fileUpload}>
               <input
                 type="file"
                 multiple
                 onChange={handleFileChange}
                 className={styles.fileInput}
+                accept="image/*,video/*"
               />
-              <button className={styles.uploadButton}>
+              <button type="button" className={styles.uploadButton}>
                 <Upload size={20} /> Choose Files
               </button>
             </div>
+            {fileError && <p className={styles.errorMessage}>{fileError}</p>}
             {files.length > 0 && (
               <div className={styles.fileList}>
-                <h3>Uploaded Files:</h3>
+                <h3>Selected Files:</h3>
                 <ul>
                   {files.map((file, index) => (
-                    <li key={index}>{file.name}</li>
+                    <li key={index}>
+                      {file.name}
+                      <button onClick={() => removeFile(index)}>Remove</button>
+                    </li>
                   ))}
                 </ul>
               </div>
