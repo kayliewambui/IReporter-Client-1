@@ -69,34 +69,31 @@
       setSubmitError(null);
       try {
         const token = sessionStorage.getItem('access_token');
-        // Upload files to Cloudinary
-        const fileUrls = await Promise.all(files.map(uploadToCloudinary));
-  
-        // Prepare the record data
-        const recordData = {
-          record_type: data.record_type,
-          description: data.description,
-          location: data.location,
-          latitude: data.latitude,
-          longitude: data.longitude,
-          additional_info: data.additionalInfo,
-          files: fileUrls
-        };
-  
-        // Submit the report
+    
+        const formData = new FormData();
+        formData.append('record_type', data.record_type);
+        formData.append('description', data.description);
+        formData.append('location', data.location);
+        formData.append('latitude', data.latitude);
+        formData.append('longitude', data.longitude);
+        formData.append('additional_info', data.additionalInfo);
+    
+        // Append files to FormData
+        files.forEach(file => formData.append('files', file));
+    
+        // Submit the report with files to the backend
         const response = await fetch('https://ireporter-server-hb42.onrender.com/api/records', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            Authorization : `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(recordData),
+          body: formData,
         });
-  
+    
         if (!response.ok) {
           throw new Error('Failed to submit report');
         }
-  
+    
         const result = await response.json();
         console.log('Report submitted successfully:', result);
         onSubmitSuccess();
@@ -107,6 +104,7 @@
         setIsSubmitting(false);
       }
     };
+    
   
   const handleNext = () => {
     switch(step) {
@@ -118,7 +116,7 @@
         }
         break;
       case 2:
-        if (getValues('description') && getValues('description').length >= 20) {
+        if (getValues('description') && getValues('description').length >= 5) {
           setStep(step + 1);
         } else {
           setError('description', { type: 'required', message: 'Please provide a description of at least 20 characters' });
