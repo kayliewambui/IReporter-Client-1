@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { AlertCircle, FileText, MapPinned, Upload, Info, CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
@@ -76,6 +75,7 @@ import styles from '../../../styling/reports/MultiStepForm.module.css';
             throw new Error('Failed to submit report');
         }
          const result = await response.json();
+
         console.log('Report submitted successfully:', result);
         onSubmitSuccess();
     } catch (error) {
