@@ -62,8 +62,8 @@ function App() {
               <Route path="/pastrecords" element={<UserRecords />} />
               <Route path="/redflags" element={<Redflags />} />
               <Route path="/interventions" element={<Interventions />} />
-              <Route path="/geo-location" element={<Interventions />} />
-              <Route path="/notifications" element={<GeoLocation />} />
+              <Route path="/geo-location" element={<GeoLocation/>} />
+              {/* <Route path="/notifications" element={<Notifications />} /> */}
 
               {/* Protected routes */}
               {/* <Route
