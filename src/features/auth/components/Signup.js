@@ -73,44 +73,69 @@ const Signup = () => {
           
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+              <div className="input-container">
+                <span className="input-icon">📧</span>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="input-container">
+                <span className="input-icon">🔒</span>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                id="confirmPassword"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
+              <div className="input-container">
+                <span className="input-icon">🔒</span>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Full Name</label>
+              <div className="input-container">
+                <span className="input-icon">👤</span>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             {showWorkerId && (
               <div className="form-group">
                 <label htmlFor="workerId">Worker ID</label>
-                <input
-                  id="workerId"
-                  type="text"
-                  value={workerId}
-                  onChange={(e) => setWorkerId(e.target.value)}
-                  required
-                />
+                <div className="input-container">
+                  <span className="input-icon">🆔</span>
+                  <input
+                    id="workerId"
+                    type="text"
+                    value={workerId}
+                    onChange={(e) => setWorkerId(e.target.value)}
+                    required
+                  />
+                </div>
               </div>
             )}
             <div className="form-group checkbox">
